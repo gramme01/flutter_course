@@ -1,26 +1,14 @@
 import 'package:flutter/material.dart';
 
-// void main() {
-//   runApp(MyApp());
-// }
-
-void main() => runApp(MyApp()); // for functions with only on line of expression
-
-class MyApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return MyAppState();
-  }
+void main() {
+  runApp(MyApp());
 }
 
-class MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   var questionIndex = 0;
 
   void answerQuestion() {
-    setState(() {
-      questionIndex = questionIndex + 1;
-    });
+    questionIndex = questionIndex + 1;
     print(questionIndex);
   }
 
@@ -35,27 +23,24 @@ class MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My First App'),
         ),
-        body: Column(
-          children: [
-            Text(
-              questions[questionIndex],
-            ),
-            RaisedButton(
-              child: Text('Answer 1'),
-              onPressed: answerQuestion,
-            ),
-            RaisedButton(
-              child: Text('Answer 2'),
-              onPressed: () => print('Answer 2 Chosen!'),
-            ),
-            RaisedButton(
-                child: Text('Answer 3'),
-                onPressed: () {
-                  // ...
-                  print('Answer 3 Chosen!');
-                }),
-          ],
-        ),
+        body: Column(children: [
+          Text(questions[questionIndex]),
+          RaisedButton(
+            child: Text('Answer 1'),
+            onPressed: answerQuestion,
+          ),
+          RaisedButton(
+            child: Text('Answer 2'),
+            onPressed: () => print('Answer 2 Chosen!'),
+          ),
+          RaisedButton(
+            child: Text('Answer 3'),
+            onPressed: () {
+              // ...
+              print('Answer 3 Chosen!');
+            },
+          ),
+        ]),
       ),
     );
   }
